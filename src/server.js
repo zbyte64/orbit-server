@@ -7,7 +7,7 @@ const adapter = require('socket.io-redis');
 const Logger = require('logplease');
 const logger = Logger.create('server', { color: Logger.Colors.Magenta, filename: 'server.log', appendFile: true });
 
-const host = 'localhost'
+const host = process.env.REDIS_HOST ? process.env.REDIS_HOST : 'localhost';
 const port = process.env.REDIS_PORT ? process.env.REDIS_PORT : 6379;
 
 class OrbitServer {
